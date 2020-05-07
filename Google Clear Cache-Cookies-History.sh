@@ -11,6 +11,8 @@ set -o pipefail
 #Command to remove Google Cache, Cookies, and History
 #
 ####################################################################################################
+#Close Google Chrome
+pkill -quit Google Chrome || true
 
 # Clear Browser Cache
 rm -rf ~/Library/Caches/Google/Chrome/Default/Cache/* || true
@@ -51,5 +53,8 @@ rm -rf ~/Application\ Support/Google/Chrome/Profile\ 3/History\ Provider\ Cache 
 rm -rf ~/Library/Application\ Support/Google/Chrome/Profile\ 3/History-journal || true
 rm -rf ~/Application\ Support/Google/Chrome/Profile\ 3/History 
 rm -rf ~/Library/Application\ Support/Google/Chrome/Profile\ 3/IndexedDB/* || true
+
+# Open Google Chrome
+osascript -e 'tell app "Google Chrome" to display dialog "Cache, Cookies and History has now been cleared"'
 
 exit 0
